@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 
 const climaSchema = new mongoose.Schema({
-    lat: Number,
-    lon: Number,
-    weather: String,
+    lat: { type: Number},
+    lon: {type: Number},
+    hourly: {type: Object, required: false},
+    daily: {type: Object, required: false}
 });
 
 
