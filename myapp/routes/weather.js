@@ -1,9 +1,11 @@
 var express = require('express')
 var router = express.Router()
 var axios = require('axios');
+require('dotenv').config()
+
 const climaModel = require('../models/climaModel');
 
-const API_key = "10b3508cf0b8b1ab9e071ab69ee405f8";
+const API_key = process.env.API_key 
 const excludes = "current,minutely,alerts";
 
 router.get('/', async function (req, res) {
