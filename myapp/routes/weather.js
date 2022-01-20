@@ -14,12 +14,30 @@ router.get("/", async function (req, res) {
   try {
     let data = await axios.get(url);
     let response = data.data;
-    let object = new climaModel(response)
+    let object = new climaModel(response);
     await object.save();
-    res.send('Objeto guardado')
+    res.send("Objeto guardado");
   } catch (error) {
     // throw new Error(error);
     console.error("Error " + error.message);
+  }
+});
+
+router.get("/hourly", async function (req, res) {
+  let hourly = req.query;
+  // climaModel = new climaModel();
+  try {
+    if (hourly) {
+      let splitHour = hourly.split(":")
+      let hourlyUnix = (parseInt(splitHour[0]) * 3600) + (parseInt(splitHour[1]) * 60) 
+      console.log(hourlyUnix);
+      res.send('Buscando...')
+      // let objetcDB = search.find({ hourly });
+      // if (objectDB) {
+      // }
+    }
+  } catch (error) {
+    console.error('Error... ', error)
   }
 });
 
