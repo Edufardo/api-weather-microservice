@@ -6,5 +6,3 @@ You can make request about the weather. The response of the request that you mak
 
 ## Installing
 
-Using npm: 
-$ npm install 
